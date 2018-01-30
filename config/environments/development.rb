@@ -27,9 +27,11 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.perform_caching = false
+  #元のコード→config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method  = :test
+  host = 'rails-tutorial-katoken.c9users.io' #自分の開発環境を記入→cloud9
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -51,4 +53,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  
+  # Disable request forgery protection in development environment.
+  #config.action_controller.allow_forgery_protection = false
 end
