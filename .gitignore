@@ -24,3 +24,6 @@
 
 # Ignore Spring files.
 /spring/*.pid
+
+#ローカルでの画像投稿をgitignore
+/public/uploads
